@@ -1,0 +1,11 @@
+queue:
+- name: follow-queue
+  rate: 2/s
+- name: ffme-scan
+  rate: 2/s
+- name: fftype-scan
+  rate: 1/s
+- name: ffsearch
+  rate: 1/s
+- name: ffprofile
+  rate: 1/s

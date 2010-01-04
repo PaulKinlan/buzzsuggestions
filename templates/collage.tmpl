@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>ffollo - User Collage!</title>
+<link rel="stylesheet" type="text/css" media="all" href="/css/960.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<!--[if lt IE 7]>
+        <script type="text/javascript" src="unitpngfix.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.3.2.min.js"></script>
+<script>
+ var images = new Array({% for follow in follows %}'{{follow}}' ,{% endfor %} 'kinlan')
+ var currentPage = 0
+ var imagesPerPage = 40
+
+
+ function loadImages()
+ {
+	var offset = currentPage * imagesPerPage;
+	var limit = offset + imagesPerPage;
+	
+	for(var i = offset; i< limit; i++)
+	{
+		var imageId = (i - limit + imagesPerPage) + 1
+		$("#image" + imageId).attr({"src": "http://friendfeed-api.com/v2/picture/" + images[i] + "?size=large", "alt": images[i], "title": images[i] })
+		$("#image" + imageId).click(function() {
+			
+			var image_id = this.id.replace("image", "") - 1
+		
+			window.open("http://friendfeed.com/" + images[image_id], "_blank")
+		})
+	}
+ }
+
+ $(document).ready(function() {
+	loadImages()
+	}
+)
+
+ $("#prev").live("click", function()
+	{
+		currentPage --
+		
+		if (currentPage < 0)
+		{
+			currentPage = 0
+		}
+		
+		loadImages()
+	}
+ )
+
+ $("#next").live("click", function()
+	{
+		currentPage ++
+		if(currentPage > images.length / imagesPerPage )
+		{
+			currentPage --
+		}
+		loadImages()
+	}
+ )
+
+</script>
+<style>
+
+tbody tr:hover 	{}
+
+.grid11 img{
+	width: 75px;
+	height: 75px;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="container_16">
+    <div class="header">
+        <div class="grid_6"><a href="/"><img src="/images/ffollo.png" class="logo" /></a></div>
+        <div class="grid_10 slogan">
+        </div>
+    </div>
+</div>
+
+<div class="clear">&nbsp;</div>
+
+<div class="container_16 topmenubg">
+    <div class="topmenu">
+       <span style="color: white; font-weight: 800; margin-top: 7px;">This is beta... and in development - it might break.</span>
+    </div>
+</div>
+
+<div class="clear">&nbsp;</div>
+
+<div id="home-slider" >
+    <div class="container_16" id="boos">
+        <div class="grid_11">
+			<div style="padding:15px;">
+				<h2 style="margin-top: 15px;">Follow Snapshot for {{username}} - this is a public page</h2>
+				
+				<img src="/images/blank.png" style="float:left;" id="image1" />
+				<img src="/images/blank.png" style="float:left;" id="image2" />
+				<img src="/images/blank.png" style="float:left;" id="image3" />
+				<img src="/images/blank.png" style="float:left;" id="image4" />
+				<img src="/images/blank.png" style="float:left;" id="image5" />
+				<img src="/images/blank.png" style="float:left;" id="image6" />
+				<img src="/images/blank.png" style="float:left;" id="image7" />
+				<img src="/images/blank.png" style="float:left;" id="image8" />
+				<img src="/images/blank.png" style="float:left;" id="image9" />
+				<img src="/images/blank.png" style="float:left;" id="image10" />
+				<img src="/images/blank.png" style="float:left;" id="image11" />
+				<img src="/images/blank.png" style="float:left;" id="image12" />
+				<img src="/images/blank.png" style="float:left;" id="image13" />
+				<img src="/images/blank.png" style="float:left;" id="image14" />
+				<img src="/images/blank.png" style="float:left;" id="image15" />
+				<img src="/images/blank.png" style="float:left;" id="image16" />
+				<img src="/images/blank.png" style="float:left;" id="image17" />
+				<img src="/images/blank.png" style="float:left;" id="image18" />
+				<img src="/images/blank.png" style="float:left;" id="image19" />
+				<img src="/images/blank.png" style="float:left;" id="image20" />
+				<img src="/images/blank.png" style="float:left;" id="image21" />
+				<img src="/images/blank.png" style="float:left;" id="image22" />
+				<img src="/images/blank.png" style="float:left;" id="image23" />
+				<img src="/images/blank.png" style="float:left;" id="image24" />
+				<img src="/images/blank.png" style="float:left;" id="image25" />
+				<img src="/images/blank.png" style="float:left;" id="image26" />
+				<img src="/images/blank.png" style="float:left;" id="image27" />
+				<img src="/images/blank.png" style="float:left;" id="image28" />
+				<img src="/images/blank.png" style="float:left;" id="image29" />
+				<img src="/images/blank.png" style="float:left;" id="image30" />
+				<img src="/images/blank.png" style="float:left;" id="image31" />
+				<img src="/images/blank.png" style="float:left;" id="image32" />
+				<img src="/images/blank.png" style="float:left;" id="image33" />
+				<img src="/images/blank.png" style="float:left;" id="image34" />
+				<img src="/images/blank.png" style="float:left;" id="image35" />
+				<img src="/images/blank.png" style="float:left;" id="image36" />
+				<img src="/images/blank.png" style="float:left;" id="image37" />
+				<img src="/images/blank.png" style="float:left;" id="image38" />
+				<img src="/images/blank.png" style="float:left;" id="image39" />
+				<img src="/images/blank.png" style="float:left;" id="image40" />
+				<br class="clear">
+				<button id="prev">&lt;&lt;</button> 	<button id="next">&gt;&gt;</button>
+				
+			</div>
+       </div>
+	   <div class="grid_5">
+			<div style="padding:15px;">
+				<div style="margin-top:15px;">
+				</div>
+				
+				<div style="margin-bottom: 3px;" class="notes"><a href="http://www.ffollo.com/user/{{username}}" target="_blank">Profile</a></div>
+				<div style="margin-bottom: 3px;" class="notes"><a href="http://www.ffollo.com/user/{{username}}/blocks" target="_blank">User Blocks</a></div>
+				<div style="margin-bottom: 3px;" class="notice"><a href="http://www.ffollo.com/user/{{username}}/collage" target="_blank">Follow Collage</a></div>
+				<div style="margin-bottom: 3px;" class="notes"><a href="http://friendfeed.com/ffollo" target="_blank">Ffollo Group</a></div>
+				<div style="margin-bottom: 3px;" class="notes"><a href="/session/destroy">Logout</a></div>
+				
+				<h2 style="margin-top: 15px;">Helpful Friendfeed Links</h2>
+				<div style="margin-bottom: 3px;"><a href="http://friendfeed.com/friends" target="_blank">Create a List</a></div>
+				<div style="margin-bottom: 3px;"><a href="http://friendfeed.com/settings/modifications" target="_blank">Recent Changes to your account</a></div>
+			</div>
+	   </div>
+ 			<div class="clear">&nbsp;</div>
+		
+    </div>
+
+    <div class="bg_bottom"></div>
+</div>
+<div class="clear">&nbsp;</div>
+<div class="container_16" id="footer">
+    <div class="grid_11" style="background-color: #484848 ;">
+        <div class="footer">&copy; Copyright 2009. All Rights Reserved.<br />
+            Powered by <a href="http://www.topicala.com/">Topicala Ltd</a>, on the super <a href="http://www.friendfeed.com/">FriendFeed Platform</a> </div>
+
+    </div>
+
+ 	<div class="grid_5" style="background-color: #484848 ;">
+       
+        <div class="footer">
+            <a href="/terms">Terms</a> | <a href="/contact">Contact</a> | <a href="/">Home</a></div>
+    </div>
+</div>
+<!-- footer part end -->
+</body>
+</html>
+ 

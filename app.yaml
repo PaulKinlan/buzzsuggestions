@@ -1,0 +1,25 @@
+application: ffollo-app
+version: 1
+runtime: python
+api_version: 1
+
+default_expiration: "1h"
+
+handlers:
+- url: /css
+  static_dir: templates/css
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+- url: /robots.txt
+  static_files: robots.txt
+  upload: robots.txt
+- url: /images
+  static_dir: templates/images
+- url: /js
+  static_dir: templates/js
+- url: /scripts
+  static_dir: scripts
+- url: .*
+  script: ffollo.py
+   

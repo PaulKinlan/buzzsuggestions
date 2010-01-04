@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>ffollo - Automatically follow who you need to!</title>
+<link rel="stylesheet" type="text/css" media="all" href="/css/960.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<!--[if lt IE 7]>
+        <script type="text/javascript" src="unitpngfix.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.3.2.min.js"></script>
+<script>
+	$(document).ready(function(){
+		// Query Friend Feed.
+		$.ajax(
+			{
+			dataType : "script",
+			url : "http://friendfeed-api.com/v2/feed/ffollo-help?num=5&callback=got_data"
+			})
+
+		
+	})
+
+function got_data(data,textstatus)
+{
+	container = $("#groupcontainer")
+	
+	var output = ""
+	
+	for(var entry in data.entries)
+	{
+		output += "<div style=\"margin-bottom: 3px;\"><a href=\"" + data.entries[entry].url + "\" target=\"_blank\">" + data.entries[entry].body + "</a></div>"
+	}
+
+	
+	container.append(output)
+	
+}
+
+</script>
+<style>
+
+tbody tr:hover 	{}
+
+</style>
+</head>
+<body>
+<div class="container_16">
+    <div class="header">
+        <div class="grid_6"><a href="/"><img src="/images/ffollo.png" class="logo" /></a></div>
+        <div class="grid_10 slogan">
+        </div>
+    </div>
+</div>
+
+<div class="clear">&nbsp;</div>
+
+<div class="container_16 topmenubg">
+    <div class="topmenu">
+       <span style="color: white; font-weight: 800; margin-top: 7px;">This is beta... and in development - it might break.</span>
+    </div>
+</div>
+
+<div class="clear">&nbsp;</div>
+
+<div id="home-slider" >
+    <div class="container_16" id="boos">
+        <div class="grid_10">
+			<div style="padding:15px;">
+				<div class="{{ message_type }}">
+					{{ message }}
+				</div>
+				<h2 style="margin-top: 15px; margin-bottom: 10px;">Blocks {{user.name}}</h2>
+				<p>You can block user so that you will never follow certain users.  Ffollo never follows the same person twice, so this feature is not required for most cases other than proactively ensuring you never follow someone.</p>
+				<h2>Blocked Users</h2>
+				<ul>{% for block in blocks.blocks %}<li><a href="http://friendfeed.com/{{block}}" target="_blank">{{block}}</a></li> {% endfor %}</ul>
+				<form method="post" action="/block/create">
+					<label for="user"></label><input type="text" name="username" />
+					<input type="submit" value="Block User">
+				</form>
+			</div>
+       </div>
+	   <div class="grid_6">
+			<div style="padding:15px;">
+				<div style="margin-top:15px;">
+				</div>
+				
+				<div style="margin-bottom: 3px;" class="notes"><a href="http://www.ffollo.com/user/{{blocks.name}}" target="_blank">Profile</a></div>
+				<div style="margin-bottom: 3px;" class="notice"><a href="http://www.ffollo.com/user/{{blocks.name}}/blocks" target="_blank">User Blocks</a></div>
+				<div style="margin-bottom: 3px;" class="notes"><a href="http://www.ffollo.com/user/{{blocks.name}}/collage" target="_blank">Follow Collage</a></div>
+				<div style="margin-bottom: 3px;" class="notes"><a href="http://friendfeed.com/ffollo" target="_blank">Ffollo Group</a></div>
+				<div style="margin-bottom: 3px;" class="notes"><a href="/session/destroy">Logout</a></div>
+			
+				<h2 style="margin-top: 15px;">Helpful Friendfeed Links</h2>
+				<div style="margin-bottom: 3px;"><a href="http://friendfeed.com/friends" target="_blank">Create a List</a></div>
+				<div style="margin-bottom: 3px;"><a href="http://friendfeed.com/settings/modifications" target="_blank">Recent Changes to your account</a></div>
+				
+				<h2 style="margin-top: 15px;">Ffollo Help</h2>
+				<span id="groupcontainer">
+					
+				</span>
+			</div>
+	   </div>
+ 			<div class="clear">&nbsp;</div>
+		
+    </div>
+
+    <div class="bg_bottom"></div>
+</div>
+<div class="clear">&nbsp;</div>
+<div class="container_16" id="footer">
+    <div class="grid_11" style="background-color: #484848 ;">
+        <div class="footer">&copy; Copyright 2009. All Rights Reserved.<br />
+            Powered by <a href="http://www.topicala.com/">Topicala Ltd</a>, on the super <a href="http://www.friendfeed.com/">FriendFeed Platform</a> </div>
+
+    </div>
+
+ 	<div class="grid_5" style="background-color: #484848 ;">
+       
+        <div class="footer">
+            <a href="/terms">Terms</a> | <a href="/contact">Contact</a> | <a href="/">Home</a></div>
+    </div>
+</div>
+<!-- footer part end -->
+</body>
+</html>
+ 
